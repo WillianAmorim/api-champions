@@ -21,3 +21,17 @@ export const noContent = async (): Promise<HttpResponse> => {
         body: null
     };
 }
+
+export const badRequest = (message: string): HttpResponse => {
+    return {
+        status: 400,
+        body: { error: message }
+    };
+};
+
+export const created = (message: string): HttpResponse => {
+    return {
+        status: 201,
+        body: { message: message }
+    };
+}

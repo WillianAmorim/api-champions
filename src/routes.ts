@@ -1,8 +1,15 @@
 import { Router } from 'express';
-import { getPlayer } from './controllers/players-controller';
+import * as PlayerController from './controllers/players-controller';
+import * as ClubController from './controllers/clubs-controller';
 
 const router = Router();
 
-router.get('/players', getPlayer);
+router.get('/players', PlayerController.getPlayer);
+router.get('/players/:id', PlayerController.getPlayerById);
+router.post('/players', PlayerController.createPlayer);
+router.delete('/players/:id', PlayerController.deletePlayer);
+router.patch('/players/:id', PlayerController.updatePlayer);
+
+router.get('/clubs', ClubController.getClubs);
 
 export default router;
